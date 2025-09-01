@@ -8,18 +8,7 @@ O AlgaPosts é um sistema composto por dois microsserviços que trabalham em con
 
 ## 🏗️ Arquitetura
 
-```
-┌─────────────────┐    RabbitMQ     ┌─────────────────────┐
-│   PostService   │ ←───────────→   │ TextProcessorService │
-│     (8080)      │                 │       (8081)        │
-└─────────────────┘                 └─────────────────────┘
-         │
-         ▼
-    ┌─────────┐
-    │   H2    │
-    │Database │
-    └─────────┘
-```
+![Arquitetura do AlgaPosts](https://raw.githubusercontent.com/LuisPaulo1/assets/master/algaposts/algaposts-architecture.svg)
 
 ### Microsserviços
 
