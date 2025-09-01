@@ -1,5 +1,8 @@
-package com.algaposts.text_processor.domain.service;
+package com.algaposts.text_processor.domain.service.impl;
 
+import com.algaposts.text_processor.domain.service.PriceCalculator;
+import com.algaposts.text_processor.domain.service.TextProcessor;
+import com.algaposts.text_processor.domain.service.WordCountStrategy;
 import com.algaposts.text_processor.infrastructure.messaging.dto.PostProcessingMessage;
 import com.algaposts.text_processor.infrastructure.messaging.dto.PostProcessingResult;
 import lombok.RequiredArgsConstructor;
