@@ -61,6 +61,7 @@ public class PostService {
     }
 
     public Page<PostSummaryOutput> findAllPosts(int page, int size) {
+        log.info("Buscando todos os posts - página: {}, tamanho: {}", page, size);
         var pageable = PageRequest.of(page, size);
         Page<Post> postsPage = postRepository.findAll(pageable);
         return postsPage.map(postMapper::toSummaryOutput);

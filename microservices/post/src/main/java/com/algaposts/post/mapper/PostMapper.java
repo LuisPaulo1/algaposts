@@ -7,11 +7,14 @@ import com.algaposts.post.domain.model.Post;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import java.util.UUID;
+
 @Component
 public class PostMapper {
     
     public Post toEntity(PostInput postInput) {
         return Post.builder()
+                .id(UUID.randomUUID())
                 .title(postInput.getTitle())
                 .body(postInput.getBody())
                 .author(postInput.getAuthor())
@@ -24,6 +27,8 @@ public class PostMapper {
                 .title(post.getTitle())
                 .body(post.getBody())
                 .author(post.getAuthor())
+                .wordCount(post.getWordCount())
+                .calculatedValue(post.getCalculatedValue())
                 .build();
     }
 
@@ -42,16 +47,16 @@ public class PostMapper {
             return "";
         }
 
-        String[] lines = body.split("\n");
-        StringBuilder summary = new StringBuilder();
-
-        for (int i = 0; i < Math.min(3, lines.length); i++) {
-            if (i > 0) {
-                summary.append("\n");
-            }
-            summary.append(lines[i]);
+        final int MAX_CHARS = 350;
+        if (body.length() <= MAX_CHARS) {
+            return body;
         }
 
-        return summary.toString();
+        int lastSpace = body.lastIndexOf(' ', MAX_CHARS);
+        if (lastSpace > 0) {
+            return body.substring(0, lastSpace) + "...";
+        }
+
+        return body.substring(0, MAX_CHARS) + "...";
     }
 }

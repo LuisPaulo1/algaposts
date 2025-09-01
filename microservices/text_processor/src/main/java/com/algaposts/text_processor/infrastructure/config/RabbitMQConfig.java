@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
+    public static final String QUEUE_TEXT_PROCESSOR = "text-processor-service.post-processing.v1.q";
+
     @Bean
     public Jackson2JsonMessageConverter jackson2JsonMessageConverter(ObjectMapper objectMapper) {
         return new Jackson2JsonMessageConverter(objectMapper);

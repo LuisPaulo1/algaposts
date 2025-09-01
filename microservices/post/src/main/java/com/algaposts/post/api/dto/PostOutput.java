@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
@@ -14,6 +15,6 @@ public class PostOutput {
     private String title;
     private String body;
     private String author;
-    private long wordCount;
-    private double calculatedValue;
+    private Integer wordCount;
+    private BigDecimal calculatedValue;
 }

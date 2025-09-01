@@ -25,8 +25,8 @@ public class PostController {
         return ResponseEntity.status(HttpStatus.CREATED).body(postOutput);
     }
 
-    @GetMapping("/id")
-    public ResponseEntity<PostOutput> findPostById(@RequestParam("id") UUID id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<PostOutput> findPostById(@PathVariable("id") UUID id) {
         var post = postService.findPostById(id);
         return ResponseEntity.ok(post);
     }

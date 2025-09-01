@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    public static final String TEXT_PROCESS = "text-processor-service.post-processing.v1.q";
+    public static final String TEXT_PROCESS = "text-processor-service.post-processing.v1";
     public static final String QUEUE_TEXT_PROCESS = TEXT_PROCESS + ".q";
     public static final String QUEUE_POST_SERVICE = "post-service.post-processing-result.v1.q";
     public static final String EXCHANGE_POST_PROCESS = "post-processing-exchange.v1.e";
