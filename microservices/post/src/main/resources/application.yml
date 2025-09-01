@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: post
+
+  datasource:
+    url: jdbc:h2:file:~/algaposts-post-db;CASE_INSENSITIVE_IDENTIFIERS=TRUE;
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+    listener:
+      simple:
+        prefetch: 4
+        retry:
+          enabled: true
+          initial-interval: 10s
+          max-interval: 20s
+          multiplier: 2
+          max-attempts: 3
+
+logging:
+  level:
+    com.algaposts.text_processor: DEBUG
+    org.springframework.amqp: INFO
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
