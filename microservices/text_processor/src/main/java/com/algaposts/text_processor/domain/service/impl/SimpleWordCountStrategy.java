@@ -13,7 +13,7 @@ public class SimpleWordCountStrategy implements WordCountStrategy {
             return 0;
         }
 
-        String cleanText = text.trim().replaceAll("\\s+", " ");
+        String cleanText = text.strip().replaceAll("\\s+", " ");
         if (cleanText.isEmpty()) {
             return 0;
         }
