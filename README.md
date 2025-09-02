@@ -129,7 +129,7 @@ cd microservices/post
 ### Criar um Post
 
 ```bash
-curl -X POST http://localhost:8080/v1/api/posts \
+curl -X POST http://localhost:8080/api/posts \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Meu Primeiro Post",
@@ -153,7 +153,7 @@ curl -X POST http://localhost:8080/v1/api/posts \
 ### Consultar Post (após processamento)
 
 ```bash
-curl http://localhost:8080/v1/api/posts/550e8400-e29b-41d4-a716-446655440000
+curl http://localhost:8080/api/posts/550e8400-e29b-41d4-a716-446655440000
 ```
 
 **Resposta:**
@@ -171,7 +171,7 @@ curl http://localhost:8080/v1/api/posts/550e8400-e29b-41d4-a716-446655440000
 ### Listar Posts com Paginação
 
 ```bash
-curl "http://localhost:8080/v1/api/posts?page=0&size=5"
+curl "http://localhost:8080/api/posts?page=0&size=5"
 ```
 
 **Resposta:**
@@ -288,7 +288,7 @@ cd microservices/post && ./mvnw spring-boot:run &
 
 2. **Crie um post:**
 ```bash
-curl -X POST http://localhost:8080/v1/api/posts \
+curl -X POST http://localhost:8080/api/posts \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Teste de Processamento",
@@ -299,7 +299,7 @@ curl -X POST http://localhost:8080/v1/api/posts \
 
 3. **Aguarde alguns segundos e consulte o resultado:**
 ```bash
-curl http://localhost:8080/v1/api/posts/{id-retornado}
+curl http://localhost:8080/api/posts/{id-retornado}
 ```
 
 4. **Verifique que `wordCount` = 10 e `calculatedValue` = 1.00**
