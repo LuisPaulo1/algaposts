@@ -253,9 +253,6 @@ spring:
     port: 5672
     username: rabbitmq
     password: rabbitmq
-
-text-processor:
-  price-per-word: 0.10
 ```
 
 ## 🔄 Processamento Assíncrono
