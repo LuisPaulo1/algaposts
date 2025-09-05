@@ -4,6 +4,7 @@ import com.algaposts.post.api.dto.PostInput;
 import com.algaposts.post.api.dto.PostOutput;
 import com.algaposts.post.api.dto.PostSummaryOutput;
 import com.algaposts.post.domain.service.PostService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping
-    public ResponseEntity<PostOutput> createPost(@RequestBody PostInput postInput) {
+    public ResponseEntity<PostOutput> createPost(@RequestBody @Valid PostInput postInput) {
         var postOutput = postService.processPost(postInput);
         return ResponseEntity.status(HttpStatus.CREATED).body(postOutput);
     }
